@@ -23,8 +23,6 @@ const Main = () => {
     fifth: <Fifth />,
   };
 
-  console.log(content);
-
   return (
     <div>
       <Container>
