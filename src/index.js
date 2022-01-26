@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Router from "./Router";
-import GlobalStyle from "./style/GlobalStyle";
-import { ThemeProvider } from "styled-components";
-import theme from "./style/theme";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Router from './Router';
+import GlobalStyle from './style/GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+import theme from './style/theme';
 
 ReactDOM.render(
   <>
@@ -12,5 +12,5 @@ ReactDOM.render(
       <Router />
     </ThemeProvider>
   </>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
