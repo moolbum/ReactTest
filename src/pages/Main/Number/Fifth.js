@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import Input from '../Input/Input';
 
 const Fifth = () => {
   return (
     <Wrap>
       <h1>5번</h1>
+      <Input />
     </Wrap>
   );
 };
