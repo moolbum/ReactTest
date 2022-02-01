@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 const Input = ({ onCreate }) => {
+  const inputFocus = useRef();
   const [inputValue, setInputValue] = useState({
     name: '',
     phone: '',
@@ -23,28 +24,30 @@ const Input = ({ onCreate }) => {
       name: '',
       phone: '',
     });
+    inputFocus.current.focus();
   };
 
   return (
     <form>
       <InputWrap
-        placeholder="name"
-        onChange={handleChange}
         name="name"
         value={inputValue.name}
+        onChange={handleChange}
+        placeholder="이름"
+        ref={inputFocus}
       />
       <InputWrap
-        placeholder="phone"
-        onChange={handleChange}
         name="phone"
         value={inputValue.phone}
+        onChange={handleChange}
+        placeholder="전화번호"
       />
-      <Submit onClick={handleSubmit}>Submit</Submit>
+      <Submit onClick={handleSubmit}>제출</Submit>
     </form>
   );
 };
 
-export default Input;
+export default React.memo(Input);
 
 const InputWrap = styled.input`
   margin: 15px 5px;

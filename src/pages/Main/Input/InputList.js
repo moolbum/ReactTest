@@ -1,11 +1,18 @@
 import React from 'react';
 import InputInfo from './InputInfo';
 
-const InputList = ({ data, onRemove, id }) => {
+const InputList = ({ data, onRemove, onUpdata }) => {
   return (
     <div>
       {data.map(info => {
-        return <InputInfo key={info.id} info={info} onRemove={onRemove} />;
+        return (
+          <InputInfo
+            key={info.id}
+            info={info}
+            onRemove={onRemove}
+            onUpdata={onUpdata}
+          />
+        );
       })}
     </div>
   );
@@ -15,4 +22,4 @@ InputList.defaultProps = {
   data: [],
 };
 
-export default InputList;
+export default React.memo(InputList);
