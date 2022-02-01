@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Fourth = () => {
-  return (
-    <Wrap>
-      <h1>4번</h1>
-    </Wrap>
-  );
-};
+class Fourth extends Component {
+  constructor(props) {
+    super(props);
+    console.log('constructor');
+  }
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+  render() {
+    return (
+      <Wrap>
+        <h1>4번</h1>
+      </Wrap>
+    );
+  }
+}
 
 export default Fourth;
 
