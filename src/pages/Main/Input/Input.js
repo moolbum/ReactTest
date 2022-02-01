@@ -28,18 +28,18 @@ const Input = ({ onCreate }) => {
   return (
     <form>
       <InputWrap
-        placeholder="이름"
+        placeholder="name"
         onChange={handleChange}
         name="name"
         value={inputValue.name}
       />
       <InputWrap
-        placeholder="전화번호"
+        placeholder="phone"
         onChange={handleChange}
         name="phone"
         value={inputValue.phone}
       />
-      <Submit onClick={handleSubmit}>제출</Submit>
+      <Submit onClick={handleSubmit}>Submit</Submit>
     </form>
   );
 };
