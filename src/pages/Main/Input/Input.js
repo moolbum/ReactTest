@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Input = () => {
+const Input = ({ onCreate }) => {
   const [inputValue, setInputValue] = useState({
     name: '',
     phone: '',
@@ -15,14 +15,31 @@ const Input = () => {
     });
   };
 
-  console.log(inputValue);
+  const handleSubmit = e => {
+    e.preventDefault();
+    onCreate(inputValue);
+
+    setInputValue({
+      name: '',
+      phone: '',
+    });
+  };
 
   return (
     <form>
-      <InputWrap placeholder="이름" onChange={handleChange} name="name" />
-      <InputWrap placeholder="전화번호" onChange={handleChange} name="phone" />
-      <Text>이름 : {inputValue.name}</Text>
-      <Text>전화번호 : {inputValue.phone}</Text>
+      <InputWrap
+        placeholder="이름"
+        onChange={handleChange}
+        name="name"
+        value={inputValue.name}
+      />
+      <InputWrap
+        placeholder="전화번호"
+        onChange={handleChange}
+        name="phone"
+        value={inputValue.phone}
+      />
+      <Submit onClick={handleSubmit}>제출</Submit>
     </form>
   );
 };
@@ -30,11 +47,16 @@ const Input = () => {
 export default Input;
 
 const InputWrap = styled.input`
-  margin: 15px 0;
+  margin: 15px 5px;
   padding: 10px 40px;
   border: 1px solid black;
 `;
 
-const Text = styled.p`
+const Submit = styled.button`
+  padding: 10px 50px;
   margin: 5px 0;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  font-size: 20px;
 `;
